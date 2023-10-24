@@ -2,8 +2,9 @@
   "name": "dalogic",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "test"
   },
   "author": "Michael Anthony Bitoon",
