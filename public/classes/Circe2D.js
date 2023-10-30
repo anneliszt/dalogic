@@ -12,19 +12,17 @@ export class Circle2D extends Node2D{
     }
 
     render(context) {
-        const path = new Path2D();
-    
         // Create a path for the circle
-        path.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+        this.path.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
     
         // Customize the rendering style
         context.fillStyle = this.color; // Circle color
         if (this.filled) {
-            context.fill(path);
+            context.fill(this.path);
         } else{
             context.strokeStyle = this.color; // Outline color
             context.lineWidth = 2; // Outline width
-            context.stroke(path); // Stroke the path
+            context.stroke(this.path); // Stroke the path
         }
     
         // You can also set other properties for the context, like stroke and lineWidth, if needed.

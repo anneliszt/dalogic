@@ -1,4 +1,4 @@
-import {Node2D, Circle2D, Rectangle2D} from './classes/index.js';
+import {Node2D, Circle2D, Rectangle2D, GameBoard, Tile} from './classes/index.js';
 
 window.addEventListener('load', function() {
     const canvas = document.getElementById("game-canvas");
@@ -6,11 +6,15 @@ window.addEventListener('load', function() {
     if (canvas.getContext) {
         const context = canvas.getContext("2d");
 
-        const rootNode = new Node2D(100, 100);
-        const circle = new Circle2D(100, 100, "red", 100)
-        const circle2 = new Circle2D(100, 200, "yellow", 100, false)
-        const square = new Rectangle2D(300, 300, 100, 100);
-        rootNode.addChildren([circle, circle2, square])
+        const rootNode = new Node2D();
+        // const circle = new Circle2D(100, 100, "red", 100)
+        // const circle2 = new Circle2D(100, 200, "yellow", 100, false)
+        // const square = new Rectangle2D(0, 0, 100, 100);
+        //
+
+        const board = new GameBoard(0,0, 600, 64)
+        // const tile = new Tile(0, 0, 64, 64, true)
+        rootNode.addChild(board)
         
 
         function gameLoop() {
