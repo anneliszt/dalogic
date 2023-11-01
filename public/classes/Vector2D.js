@@ -48,4 +48,8 @@ export class Vector2D {
     const dy = this.y - vector.y;
     return dx * dx + dy * dy;
   }
+
+  distanceTo(vector) {
+    return Math.sqrt(this.squaredDistance(vector));
+  }
 }

@@ -6,6 +6,7 @@ export class Node2D {
     this.children = [];
     this.parent = null;
     this.path = new Path2D();
+
   }
 
   get x(){
@@ -24,7 +25,11 @@ export class Node2D {
     this.position.y = value;
   }
 
+
   addChild(child) {
+    if( this.eventManager !== null){
+      child.eventManager = this.eventManager;
+    }
     child.parent = this;
     this.children.push(child);
   }

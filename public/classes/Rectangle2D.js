@@ -32,7 +32,7 @@ export class Rectangle2D extends Node2D {
     }
 
   render(context) {
-
+      this.path = new Path2D()
       this.path.rect(this.x, this.y, this.width, this.height);
       context.fillStyle = this.fillColor; // Rectangle color
       context.fillRect(this.x, this.y, this.width, this.height);

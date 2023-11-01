@@ -4,3 +4,6 @@ export * from './Rectangle2D.js';
 export * from './GameBoard.js';
 export * from './Vector2D.js'
 export * from './Sprite.js'
+export * from './Piece.js'
+export * from './EventManager.js';
+export * from './Events.js';
