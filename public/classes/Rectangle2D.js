@@ -2,8 +2,8 @@ import { Node2D } from "./Node2D.js";
 import {Vector2D} from "./Vector2D.js";
 
 export class Rectangle2D extends Node2D {
-    constructor(x = 0, y = 0, width=20, height=20) {
-      super(x, y);
+    constructor(position = new Vector2D(), width=20, height=20) {
+      super(position);
       this.size = new Vector2D(width, height)
     }
 
@@ -24,11 +24,14 @@ export class Rectangle2D extends Node2D {
     }
 
     setSize(width, height) {
-      this.size(width, height);
+      this.size.set(width, height);
     }
-  
-    render(context) {
 
+    update(delta) {
+      super.update(delta);
+    }
+
+  render(context) {
 
       this.path.rect(this.x, this.y, this.width, this.height);
       context.fillStyle = this.fillColor; // Rectangle color

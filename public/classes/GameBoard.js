@@ -1,11 +1,12 @@
 import {Rectangle2D} from "./Rectangle2D.js";
+import {Vector2D} from "./Vector2D.js";
 // Import necessary classes
 
 
 // Tile class, extends Rectangle2D
 export class Tile extends Rectangle2D {
-  constructor(x = 0, y=0, width, height, isBlack) {
-    super(x, y, width, height);
+  constructor(position = new Vector2D(), width, height, isBlack) {
+    super(position, width, height);
     this.isBlack = isBlack; // Indicates whether the tile is black or white/grey
     this.setColor();
   }
@@ -20,8 +21,8 @@ export class Tile extends Rectangle2D {
 
 // GameBoard class, extends Rectangle2D
 export class GameBoard extends Rectangle2D {
-  constructor(x = 0, y = 0, size, tileSize) {
-    super(x, y, size, size);
+  constructor(position = new Vector2D(), size, tileSize) {
+    super(position, size, size);
     this.fillColor = "grey";
     this.tileSize = tileSize;
     this.rows = Math.floor(size / tileSize);
@@ -34,7 +35,7 @@ export class GameBoard extends Rectangle2D {
         const isBlack = (row + col) % 2 === 1;
         const tileX = this.x + col * this.tileSize;
         const tileY = this.y + row * this.tileSize;
-        const tile = new Tile(tileX, tileY, this.tileSize, this.tileSize, isBlack);
+        const tile = new Tile(new Vector2D(tileX, tileY), this.tileSize, this.tileSize, isBlack);
         this.tiles.push(tile);
       }
     }

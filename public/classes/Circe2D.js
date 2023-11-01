@@ -1,11 +1,12 @@
 import { Node2D } from "./Node2D.js";
+import {Vector2D} from "./Vector2D.js";
 export class Circle2D extends Node2D{
     radius;
     color;
     filled = true;
 
-    constructor(x, y, color, radius, filled = true){
-        super(x, y);
+    constructor(position = new Vector2D(), color, radius, filled = true){
+        super(position);
         this.color = color || "red";
         this.radius = radius || 10;
         this.filled = filled ;

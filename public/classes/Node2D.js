@@ -1,8 +1,8 @@
 import {Vector2D} from "./Vector2D.js";
 // Node2D class using Vector2D
 export class Node2D {
-  constructor(x = 0, y = 0) {
-    this.position = new Vector2D(x, y);
+  constructor(position = new Vector2D(0, 0)) {
+    this.position = position;
     this.children = [];
     this.parent = null;
     this.path = new Path2D();
@@ -68,12 +68,12 @@ export class Node2D {
     }
   }
 
-  update() {}
+  update(delta) {}
 
-  updateAll() {
-    this.update();
+  updateAll(delta) {
+    this.update(delta);
     this.children.forEach((child) => {
-      child.updateAll();
+      child.updateAll(delta);
     });
   }
 
